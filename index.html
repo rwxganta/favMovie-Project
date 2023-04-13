@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/images/movie.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>FavMovie</title>
 </head>
 <body>
@@ -13,6 +14,14 @@
             <img src="assets/images/square-plus.svg" alt="Plus sign">
         </button>
     </header>
+
+    <div class="container">
+        <article class="empty-msg">
+            <p>No movies has been added yet u.u</p>
+        </article>
+
+        <ul class="movie-list invisible"></ul>
+    </div>
 
 
     <!-- MODALS -->
@@ -32,15 +41,17 @@
                 <input id="url-image" type="url" name="url-image" required>
             </div>
             <div>
-                <label for="ratio">ratio</label>
+                <label for="ratio">ratio (1-5)</label>
                 <input type="range" name="ratio" id="ratio"
                 min="1" max="5" step="1" value="1" required>
             </div>
-            <div>
+            <div class="actions">
                 <button class="btn btn-add-modal">Add movie</button>
                 <button type="button" class="btn close-modal">Cancel</button>
             </div>
         </form>
+
+        <span class="ratio-number">1</span>
     </dialog>
 
     <!-- Remove movie -->
@@ -49,7 +60,7 @@
             <h2>Delete movie</h2>
         </header>
         <p>Are you sure about that?? Cannot be undone, dude.</p>
-        <div>
+        <div class="actions">
             <button type="button" class="btn delete-modal">Delete</button>
             <button type="button" class="btn close-modal">Cancel</button>
         </div>
