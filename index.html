@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/images/movie.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/app.js" defer></script>
     <title>FavMovie</title>
 </head>
 <body>
@@ -16,12 +17,12 @@
     </header>
 
     <div class="container">
-        <article class="empty-msg invisible">
+        <article class="empty-msg">
             <p>No movies has been added yet u.u</p>
         </article>
 
-        <ul class="movie-list">
-            <li class="movie">
+        <ul class="movie-list invisible">
+            <!--<li class="movie">
                 <div class="movie__image">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYgeJsoDmqIL2g5PBjivTyzfMvSPRSd4LnnQ&usqp=CAU" alt="">
                 </div>
@@ -29,8 +30,8 @@
                     <h2 class="movie__title">Vingadores: Guerra infinita</h2>
                     <p class="movie__rating">rating 5/5</p>
                 </div>
-            </li>
-            <li class="movie">
+            </li>-->
+            <!--<li class="movie">
                 <div class="movie__image">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHSwNabFN1DIqjqYgsVttDrAGr9LqF9CcjZQ&usqp=CAU" alt="">
                 </div>
@@ -38,7 +39,7 @@
                     <h2>Vingadores: Guerra infinita</h2>
                     <p>rating 5/5</p>
                 </div>
-            </li>
+            </li>-->
         </ul>
     </div>
 
@@ -56,17 +57,17 @@
                 <input id="name" type="text" required>
             </div>
             <div>
-                <label for="url-image">Image URL</label>
+                <label for="url-image">Image URL:</label>
                 <input id="url-image" type="url" name="url-image" required>
             </div>
             <div>
-                <label for="ratio">ratio (1-5)</label>
+                <label for="ratio">Rating (1-5):</label>
                 <input type="range" name="ratio" id="ratio"
                 min="1" max="5" step="1" value="1" required>
             </div>
             <div class="actions">
                 <button class="btn btn-add-modal">Add movie</button>
-                <button type="button" class="btn close-modal">Cancel</button>
+                <button type="button" class="btn close-add-modal">Cancel</button>
             </div>
         </form>
 
@@ -81,7 +82,7 @@
         <p>Are you sure about that?? Cannot be undone, dude.</p>
         <div class="actions">
             <button type="button" class="btn delete-modal">Delete</button>
-            <button type="button" class="btn close-modal">Cancel</button>
+            <button type="button" class="btn close-del-modal">Cancel</button>
         </div>
     </dialog>
 </body>

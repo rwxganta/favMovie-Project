@@ -16,7 +16,6 @@ img {
 }
 
 .container {
-    /*outline: 1px solid tomato;*/
     margin-inline: auto;
     width: 90%;
     max-width: 70ch;
@@ -63,7 +62,6 @@ h1 {
 }
 
 .movie__image {
-    outline: 4px solid tomato;
     flex-basis: 1;
     height: 10rem;
 }
