@@ -39,30 +39,42 @@ inputs[2].addEventListener("input", () => {
 
 confirmAddMovieBtn.addEventListener("click", addMovieElememt);
 
+
+function deleteMovieModalHandler() {
+    deleteMovieModal.showModal();
+}
+
 function updateUI() {
-	if (movieList.children.length !== 0) {
-		emptyList.classList.add("invisible");
-		movieList.classList.toggle("invisible");
-	}
+    //if (movieList.children.length !== 0) {
+	//	emptyList.classList.add("invisible");
+	//	movieList.classList.toggle("invisible");
+	//}
+    if (movies.length === 0) {
+        emptyList.style.display = 'block';
+    } else {
+        emptyList.style.display = 'none';
+    }
 }
 
 function cleanInputs() {
-	for (const input of inputs) {
-		input.value = "";
+    for (const input of inputs) {
+        input.value = "";
 	}
 }
 
+
 function deleteMovie(movieId) {
-	let movieIndex = 0;
+    let movieIndex = 0;
 	for (const movie of movies) {
-		if (movie.id === movieId) {
+        if (movie.id === movieId) {
 			break;
 		}
 		movieIndex += 1;
 	}
-
+    
 	movies.splice(movieIndex, 1);
 	movieList.children[movieIndex].remove();
+    deleteMovieModal.close();
 	updateUI();
 }
 
@@ -70,14 +82,14 @@ function addMovieElememt() {
 	const name = inputs[0].value;
 	const movieUrl = inputs[1].value;
 	const rating = inputs[2].value;
-
+    
 	if (name === "" || movieUrl === "") {
-		alert("Please, enter the required values");
+        alert("Please, enter the required values");
 		return;
 	}
-
+    
 	newMovie = {
-		id: Math.random(),
+        id: Math.random(),
 		name: name,
 		urlImage: movieUrl,
 		rating: rating,
@@ -86,18 +98,20 @@ function addMovieElememt() {
 	const newElement = document.createElement("li");
 	newElement.classList.add("movie");
 	newElement.innerHTML = `
-        <div class="movie__image">
-            <img src="${movieUrl}" alt="${name}">
-        </div>
-        <div class="movie__inner">
+    <div class="movie__image">
+        <img src="${movieUrl}" alt="${name}">
+    </div>
+    <div class="movie__inner">
         <h2 class="movie__title">${name}</h2>
         <p class="movie__rating">rating ${rating}/5</p>
-        </div>
-        `;
+    </div>
+    `;
 	movies.push(newMovie);
 	movieList.append(newElement);
-	addMovieModal.close();
-	newElement.addEventListener("click", deleteMovie.bind(null, newMovie.id));
+	//newElement.addEventListener("click", deleteMovie.bind(null, newMovie.id));
+	newElement.addEventListener("click", deleteMovieModalHandler);
+    confirmRemoveMovieBtn.addEventListener("click", deleteMovie.bind(null, newMovie.id));
 	cleanInputs();
+	addMovieModal.close();
 	updateUI();
 }
