@@ -1,0 +1,132 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.light.min.css";
+@import "https://unpkg.com/open-props/buttons.light.min.css";
+
+
+/* General Styling */
+
+body {
+    min-height: 100vh;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    block-size: auto;
+}
+
+.container {
+    /*outline: 1px solid tomato;*/
+    margin-inline: auto;
+    width: 90%;
+    max-width: 70ch;
+}
+
+.invisible {
+    display: none;
+}
+
+header {
+    margin-bottom: 2rem;
+    padding: var(--size-6) var(--size-3);
+    background-color: var(--orange-5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: var(--font-size-fluid-3);
+}
+
+.empty-msg {
+    padding: 2em;
+    text-align: center;
+    box-shadow: var(--shadow-3);
+    border-radius: var(--radius-3);
+}
+
+.movie-list {
+    padding: 0;
+    list-style: none;
+}
+
+.movie-list > * + * {
+    margin-top: 1.5rem;
+}
+
+.movie {
+    padding: 0;
+    max-width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.movie__image {
+    outline: 4px solid tomato;
+    flex-basis: 1;
+    height: 10rem;
+}
+
+.movie__image img {
+    height: 100%;
+    object-fit: fill;
+}
+
+.movie__inner {
+    padding-inline-start: 1em;
+    flex-grow: 2;
+}
+
+.movie__inner h2 {
+    font-size: var(--font-size-fluid-1);
+}
+
+dialog {
+    padding: 0;
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+dialog form {
+    padding: var(--size-3);
+}
+
+dialog form > * {
+    margin-block-start: var(--size-2);
+}
+
+dialog h2 {
+    font-size: var(--font-size-fluid-1);
+}
+
+dialog div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-fluid-1);
+}
+
+dialog .actions {
+    margin-block-start: var(--size-6);
+}
+
+.add-modal{
+    padding: 0;
+    width: 3rem;
+    aspect-ratio: var(--ratio-square);
+    /*background: transparent;*/
+    border: none;
+}
+
+#add-movie .ratio-number {
+    display: block;
+    font-size: 540px;
+    line-height: .9;
+    position: absolute;
+    top: 17px;
+    right: -117px;
+    z-index: -1;
+    opacity: .3;
+}
